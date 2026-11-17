@@ -1,0 +1,22 @@
+CORREÇÃO DE AVALIAÇÕES DO TFHUB
+
+Arquivos ajustados:
+- src/collections/Reviews.ts
+- src/app/(frontend)/actions/reviews.ts
+- src/lib/attractions.ts
+- next.config.ts
+
+O campo authorName agora existe na coleção Reviews, correspondendo à consulta que a página já fazia.
+Novas avaliações autenticadas são salvas como aprovadas e associadas ao ID da conta conectada.
+A consulta pública retorna somente avaliações aprovadas e usa o nome público do autor.
+O projeto também permite /assets/** no next/image.
+
+IMPORTANTE:
+1. Antes de iniciar, faça uma cópia do arquivo tfhub.db (se existir) para outro local.
+2. Extraia este ZIP por cima de uma cópia do projeto atual, mantendo o tfhub.db.
+3. Execute npm install se necessário.
+4. Execute npm run dev.
+5. Teste com duas contas diferentes.
+
+O banco tfhub.db não está incluído nem foi apagado por esta correção.
+As avaliações antigas que estejam com status "pending" continuam pendentes; aprove-as no painel /admin para que apareçam publicamente.

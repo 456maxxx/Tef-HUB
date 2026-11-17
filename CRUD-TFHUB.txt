@@ -1,0 +1,31 @@
+TFHUB — CRUD DE PONTOS TURÍSTICOS
+
+O sistema utiliza o painel administrativo do Payload CMS para o CRUD.
+
+Como acessar:
+1. Inicie o projeto com `pnpm install` (ou o gerenciador já usado no projeto) e `pnpm dev`.
+2. Abra http://localhost:3000/admin.
+3. No primeiro acesso, crie a conta de administrador.
+4. Entre em “Attractions” / “Pontos turísticos”.
+
+Operações disponíveis:
+- CREATE: criar um ponto turístico pelo botão de criar novo.
+- READ: consultar os registros na listagem e abrir cada registro.
+- UPDATE: editar os campos e salvar.
+- DELETE: excluir um registro pela ação de exclusão.
+
+Campos do ponto turístico:
+nome, slug, chamada, descrição curta, descrição completa, categoria,
+localização, duração, dificuldade, imagem, destaque e itens de destaque.
+A nota e a quantidade de avaliações são calculadas pelo sistema.
+
+Segurança:
+- A leitura pública continua habilitada; a página pública exibe apenas registros publicados.
+- Criar, editar e excluir pontos turísticos agora exige uma sessão da coleção admins.
+- Avaliações também possuem gerenciamento administrativo no painel.
+- Usuários comuns não recebem permissão administrativa.
+
+Banco de dados:
+O projeto usa SQLite em `tfhub.db` (ou no caminho definido por DATABASE_URL).
+Faça uma cópia de segurança do banco antes de substituir arquivos de um projeto existente.
+Este ZIP não contém seu banco de dados local.

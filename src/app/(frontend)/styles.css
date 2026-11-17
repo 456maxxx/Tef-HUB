@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', sans-serif;
+  --font-serif: 'DM Serif Display', serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #f7f5ee;
+    color: #193b32;
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background: #d6a95c;
+    color: #14392f;
+  }
+}
+
+@layer components {
+  .nav-link {
+    position: relative;
+    color: rgb(255 255 255 / 0.74);
+    transition: color 180ms ease;
+  }
+
+  .nav-link::after {
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+    left: 0;
+    height: 1px;
+    content: '';
+    background: #edc77e;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 240ms ease;
+  }
+
+  .nav-link:hover {
+    color: white;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .section-kicker {
+    color: #ad792f;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .primary-button {
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #184a3d;
+    color: white;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    transition:
+      background 180ms ease,
+      transform 180ms ease;
+  }
+
+  .primary-button:hover {
+    background: #0f332a;
+    transform: translateY(-1px);
+  }
+
+  .primary-button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+    transform: none;
+  }
+
+  .form-label {
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #40564e;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .form-input {
+    width: 100%;
+    border: 1px solid rgb(23 62 52 / 0.18);
+    border-radius: 0.85rem;
+    background: white;
+    padding: 0.9rem 1rem;
+    color: #173e34;
+    font-size: 0.9rem;
+    outline: none;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .form-input:focus {
+    border-color: #b47d2e;
+    box-shadow: 0 0 0 3px rgb(180 125 46 / 0.12);
+  }
+
+  .auth-shell {
+    display: grid;
+    min-height: 100vh;
+    background: #f7f5ee;
+  }
+
+  .auth-panel {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .auth-image {
+    position: relative;
+    display: none;
+    min-height: 100vh;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 70% 28%, rgb(222 185 105 / 0.65), transparent 12%),
+      linear-gradient(150deg, transparent 30%, rgb(6 29 24 / 0.72) 74%),
+      radial-gradient(ellipse at 20% 85%, #729278 0%, #285849 43%, #0f332a 78%);
+  }
+
+  .auth-image::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    opacity: 0.23;
+    background-image: repeating-radial-gradient(
+      ellipse at 0 100%,
+      transparent 0,
+      transparent 25px,
+      rgb(255 255 255 / 0.35) 26px,
+      transparent 28px
+    );
+  }
+
+  .auth-image-signup {
+    background:
+      radial-gradient(circle at 28% 22%, rgb(229 186 99 / 0.68), transparent 13%),
+      linear-gradient(20deg, rgb(5 28 23 / 0.8), transparent 60%),
+      radial-gradient(ellipse at 75% 70%, #6d8e72 0%, #285849 45%, #11372d 80%);
+  }
+
+  .auth-image-caption {
+    position: absolute;
+    z-index: 2;
+    right: 4rem;
+    bottom: 4rem;
+    left: 4rem;
+    color: white;
+  }
+
+  .auth-image-caption span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #e9c47d;
+  }
+
+  .auth-image-caption p {
+    margin-top: 0.8rem;
+    max-width: 34rem;
+    font-family: var(--font-serif);
+    font-size: clamp(2.6rem, 4vw, 4.8rem);
+    line-height: 0.95;
+  }
+}
+
+@media (min-width: 1024px) {
+  .auth-shell {
+    grid-template-columns: minmax(480px, 0.82fr) 1.18fr;
+  }
+
+  .auth-panel {
+    padding-right: clamp(3rem, 7vw, 8rem);
+    padding-left: clamp(3rem, 7vw, 8rem);
+  }
+
+  .auth-image {
+    display: block;
+  }
+}
+
+.figma-custom-code-fragment {
+  display: contents;
+}
+
+.figma-bypass-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 2147483647;
+  transform: translateY(-150%);
+  border-radius: 6px;
+  background: #111827;
+  color: #fff;
+  padding: 8px 12px;
+  font:
+    600 14px/1.2 system-ui,
+    sans-serif;
+  text-decoration: none;
+}
+
+.figma-bypass-link:focus {
+  transform: translateY(0);
+}

@@ -1,0 +1,21 @@
+TFHUB — INICIAR NO WINDOWS
+
+IMPORTANTE: este projeto usa Payload CMS 4 beta e exige Node.js 24.22.1 ou superior.
+A versão 22.18.0 não atende ao requisito informado pelo próprio projeto.
+
+1. Instale Node.js 24.22.1 ou uma versão 24.x mais recente.
+2. Abra PowerShell dentro desta pasta.
+3. Execute: npm install
+4. Execute: npm run generate:types   (uma vez)
+5. Execute: npm run dev
+6. Abra: http://localhost:3000
+
+O painel de gerenciamento fica em: http://localhost:3000/admin
+O banco local SQLite será criado automaticamente como tfhub.db.
+
+A configuração foi convertida para Payload local e não exige FIGMA_EID.
+A chave PAYLOAD_SECRET padrão é apenas para desenvolvimento local. Antes de publicar
+na internet, defina uma chave privada forte em .env.local.
+
+Na inicialização, o sistema cria os registros demonstrativos que estiverem faltando: Lago de Tefé, Praia da Ponta Branca, Catedral de Santa Teresa, Casa do Artesão, Praça Santa Teresa, Feira Municipal, Reserva Mamirauá, Floresta Nacional de Tefé, Seminário São José, Trilha Interpretativa da FLONA e Café Regional da Feira Municipal. A carga não apaga nem sobrescreve registros existentes. Desligue com SEED_DEMO_DATA=false no .env.local. As imagens geradas são ilustrativas.
+O primeiro acesso a /admin cria o administrador. Veja CORRECOES.md para o resumo das correções.
